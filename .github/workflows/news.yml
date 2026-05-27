@@ -1,0 +1,50 @@
+name: Fetch Shkreli News
+
+on:
+  schedule:
+    - cron: '0 7,12,17,22 * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch and generate news.json
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+        run: |
+          python3 - <<'EOF'
+          import urllib.request, json, os
+
+          key = os.environ['NEWS_API_KEY']
+          query = 'Martin+Shkreli'
+          url = f'https://newsapi.org/v2/everything?q={query}&sortBy=publishedAt&pageSize=20&language=en&apiKey={key}'
+
+          with urllib.request.urlopen(url) as r:
+              data = json.loads(r.read())
+
+          articles = []
+          for a in data.get('articles', []):
+              if not a.get('title') or '[Removed]' in a.get('title',''):
+                  continue
+              articles.append({
+                  'title': a['title'],
+                  'url': a['url'],
+                  'source': a['source']['name'],
+                  'date': a['publishedAt']
+              })
+
+          with open('news.json', 'w') as f:
+              json.dump(articles[:10], f)
+          print(f"Wrote {len(articles[:10])} articles")
+          EOF
+
+      - name: Commit news.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add news.json
+          git diff --cached --quiet || git commit -m "Update news feed"
+          git push
