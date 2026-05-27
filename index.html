@@ -47,7 +47,6 @@
     a { color: var(--gold); text-decoration: none; }
     a:hover { color: var(--gold-light); }
 
-    /* NAV */
     nav {
       background: var(--dark);
       border-bottom: 1px solid var(--border);
@@ -80,7 +79,6 @@
     }
     .nav-links a:hover { color: var(--gold); }
 
-    /* HERO */
     .hero {
       background: linear-gradient(160deg, #1a1200 0%, #0a0a0a 60%);
       border-bottom: 1px solid var(--border);
@@ -127,7 +125,6 @@
     }
     .hero-cta:hover { background: var(--gold-light); color: var(--black); }
 
-    /* COUNTER */
     .counter-bar {
       background: var(--dark);
       border-bottom: 1px solid var(--border);
@@ -147,7 +144,6 @@
       margin-top: 0.2rem;
     }
 
-    /* SECTIONS */
     .section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
     .section-title {
       font-size: 0.75rem;
@@ -174,7 +170,6 @@
       margin: 0;
     }
 
-    /* PETITION FORM */
     .petition-section {
       background: var(--dark);
       border-top: 1px solid var(--border);
@@ -198,10 +193,7 @@
       width: 100%;
       font-family: 'Georgia', serif;
     }
-    .petition-form input:focus {
-      outline: none;
-      border-color: var(--gold);
-    }
+    .petition-form input:focus { outline: none; border-color: var(--gold); }
     .petition-form input::placeholder { color: var(--muted); }
     .petition-btn {
       background: var(--gold);
@@ -222,13 +214,8 @@
     .form-msg { font-size: 0.9rem; margin-top: 0.5rem; min-height: 1.2rem; }
     .form-msg.success { color: #4caf50; }
     .form-msg.error { color: var(--red); }
-    .form-disclaimer {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-    }
+    .form-disclaimer { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
 
-    /* APPEARANCES */
     .appearances-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -268,12 +255,7 @@
       letter-spacing: 0.08em;
     }
 
-    /* NEWS */
-    .news-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+    .news-grid { display: grid; gap: 1rem; margin-top: 2rem; }
     .news-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -299,7 +281,6 @@
     }
     .news-loading { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: 1rem; }
 
-    /* FOOTER */
     footer {
       background: var(--dark);
       border-top: 1px solid var(--border);
@@ -342,7 +323,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Pardon Martin Shkreli</div>
   <ul class="nav-links">
@@ -353,7 +333,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-tag">Grassroots Advocacy</div>
   <h1>Free the Mind.<br><span>Pardon Martin Shkreli.</span></h1>
@@ -361,7 +340,6 @@
   <a href="#petition" class="hero-cta">Sign the Petition</a>
 </section>
 
-<!-- COUNTER -->
 <div class="counter-bar">
   <div class="counter-number" id="sig-count">—</div>
   <div class="counter-label">Signatures and Counting</div>
@@ -369,7 +347,6 @@
 
 <hr class="divider" />
 
-<!-- ABOUT -->
 <section class="section" id="about">
   <div class="section-title">Who Is Martin Shkreli?</div>
   <h2>A Brilliant Mind the System Tried to Break</h2>
@@ -380,7 +357,6 @@
 
 <hr class="divider" />
 
-<!-- PETITION -->
 <section class="petition-section" id="petition">
   <div class="petition-inner">
     <div class="section-title">Take Action</div>
@@ -402,7 +378,6 @@
 
 <hr class="divider" />
 
-<!-- APPEARANCES -->
 <section class="section" id="appearances">
   <div class="section-title">Podcasts &amp; Media</div>
   <h2>Hear Martin in His Own Words</h2>
@@ -413,7 +388,7 @@
       <div class="appearance-type">Podcast</div>
       <h3>My First Million — Episode #445</h3>
       <p>How Shkreli turned $2M into $1B in pharma, the Daraprim story, prison, and what comes next.</p>
-      <a class="appearance-link" href="https://www.youtube.com/watch?v=9oAOn9p_src" target="_blank" rel="noopener">Watch →</a>
+      <a class="appearance-link" href="https://www.youtube.com/watch?v=Jr7zj40ZZ9Y" target="_blank" rel="noopener">Watch →</a>
     </div>
 
     <div class="appearance-card">
@@ -456,7 +431,6 @@
 
 <hr class="divider" />
 
-<!-- NEWS -->
 <section class="section" id="news">
   <div class="section-title">Latest Coverage</div>
   <h2>In the News</h2>
@@ -465,7 +439,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Pardon Martin Shkreli</div>
   <ul class="footer-links">
