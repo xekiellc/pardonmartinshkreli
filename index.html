@@ -76,7 +76,7 @@
     .hero-cta { display: inline-block; background: var(--gold); color: var(--black); font-size: 0.9rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border-radius: 3px; transition: background 0.2s; }
     .hero-cta:hover { background: var(--gold-light); color: var(--black); }
 
-    .counter-bar { background: var(--dark); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; }
+    .counter-bar { background: var(--dark); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; display: none; }
     .counter-number { font-size: 2.5rem; font-weight: bold; color: var(--gold); }
     .counter-label { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
 
@@ -156,7 +156,7 @@
   <a href="#petition" class="hero-cta">Sign the Petition</a>
 </section>
 
-<div class="counter-bar">
+<div class="counter-bar" id="counter-bar">
   <div class="counter-number" id="sig-count">—</div>
   <div class="counter-label">Signatures and Counting</div>
 </div>
@@ -222,6 +222,13 @@
     </div>
 
     <div class="appearance-card">
+      <div class="appearance-type">YouTube</div>
+      <h3>Tucker Carlson Interview</h3>
+      <p>Shkreli on his prosecution, the Hillary joke, prison, and Sam Bankman-Fried.</p>
+      <a class="appearance-link" href="https://www.youtube.com/watch?v=NeyN3Jzdzz0" target="_blank" rel="noopener">Watch →</a>
+    </div>
+
+    <div class="appearance-card">
       <div class="appearance-type">Podcast</div>
       <h3>Spaces &amp; Livestreams on X</h3>
       <p>Regular X Spaces appearances discussing biotech, politics, and current events.</p>
@@ -272,8 +279,12 @@
         headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
       });
       const data = await res.json();
-      document.getElementById('sig-count').textContent = Array.isArray(data) ? data.length.toLocaleString() : '0';
-    } catch { document.getElementById('sig-count').textContent = '0'; }
+      const count = Array.isArray(data) ? data.length : 0;
+      if (count >= 100) {
+        document.getElementById('sig-count').textContent = count.toLocaleString();
+        document.getElementById('counter-bar').style.display = 'block';
+      }
+    } catch {}
   }
 
   document.getElementById('petition-form').addEventListener('submit', async function(e) {
