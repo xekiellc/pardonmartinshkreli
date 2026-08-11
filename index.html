@@ -9,9 +9,13 @@
   <meta property="og:description" content="Join thousands calling for justice. Martin Shkreli deserves a pardon." />
   <meta property="og:url" content="https://pardonmartinshkreli.com" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pardonmartinshkreli.com/og-image-shkreli.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pardon Martin Shkreli" />
   <meta name="twitter:description" content="Join thousands calling for justice. Martin Shkreli deserves a pardon." />
+  <meta name="twitter:image" content="https://pardonmartinshkreli.com/og-image-shkreli.png" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5V08N044J"></script>
   <script>
@@ -45,6 +49,18 @@
 
     a { color: var(--gold); text-decoration: none; }
     a:hover { color: var(--gold-light); }
+
+    /* ── HERO IMAGE BANNER ── */
+    .hero-image-banner {
+      width: 100%;
+      display: block;
+      border-bottom: 3px solid var(--gold);
+    }
+    .hero-image-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
     nav {
       background: var(--dark);
@@ -148,6 +164,11 @@
     <li><a href="#news">News</a></li>
   </ul>
 </nav>
+
+<!-- HERO IMAGE BANNER -->
+<div class="hero-image-banner">
+  <img src="/og-image-shkreli.png" alt="Pardon Martin Shkreli" />
+</div>
 
 <section class="hero">
   <div class="hero-tag">Grassroots Advocacy</div>
